@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>API</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class = "container">
+<table class = "table table-striped">
+	<thead>
+		<tr>
+			<th>URL</th>
+			<th>TYPE</th>
+			<th>BODY</th>
+			<th>DETAILS</th>
+			<th>RESPONSE</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>/{table}</td>
+			<td>GET</td>
+			<td>NONE</td>
+			<td>Receives everything for that class/table</td>
+			<td>Array of Object</td>
+		</tr>
+		<tr>
+			<td>/{table}</td>
+			<td>POST</td>
+			<td>Object of values of the object</td>
+			<td>Adds passed object to the table</td>
+			<td>Object containing the # added (1) and the ID of the added object</td>
+		</tr>
+		<tr>
+			<td>delete/{table}</td>
+			<td>GET</td>
+			<td>NONE</td>
+			<td>Clears the table</td>
+			<td>"deleted all " + {id}</td>
+		</tr>
+		<tr>
+			<td>/{table}/search</td>
+			<td>POST</td>
+			<td>Object of the key:value</td>
+			<td>Search table based on the body criteria</td>
+			<td>Array of Objects</td>
+		</tr>
+		<tr>
+			<td>/{table}/id_search/{id}</td>
+			<td>GET</td>
+			<td>NONE</td>
+			<td>search table by id</td>
+			<td>Object, {id} MUST be valid!</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</body>
+</html>
