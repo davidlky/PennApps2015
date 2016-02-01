@@ -86,18 +86,40 @@ app.post('/:event/search', function (req,res){
 });
 
 app.get('/:event/id_search/:id', function (req,res){
-	MongoClient.connect(url, function(err, db) {
-	  if (err) {
-	    throw err;
-	  }
-	  db.collection(req.params.event).findOne({_id:new ObjectId(req.params.id)},function(err,data) {
-	    if (err) {
-	      throw err;
-	    }
-  		res.json(data);
-	  });
-	});
+	if (req.params.id.length==24){
+		MongoClient.connect(url, function(err, db) {
+		  if (err) {
+		    throw err;
+		  }
+		  db.collection(req.params.event).findOne({_id:new ObjectId(req.params.id)},function(err,data) {
+		    if (err) {
+		      throw err;
+		    }
+	  		res.json(data);
+		  });
+		});
+	}else{
+		res.send("nope");
+	}
+});
 
+
+app.post('/:event/id_search/:id', function (req,res){
+	if (req.params.id.length==24){
+		MongoClient.connect(url, function(err, db) {
+		  if (err) {
+		    throw err;
+		  }
+		  db.collection(req.params.event).updateOne({_id:new ObjectId(req.params.id)},req.body,function(err,data) {
+		    if (err) {
+		      throw err;
+		    }
+	  		res.json(data);
+		  });
+		});
+	}else{
+		res.send("nope");
+	}
 });
 
 
